@@ -51,6 +51,7 @@ module "app_server" {
   ami_id             = var.app_server_ami_id
   instance_type      = "t3.micro"
   key_name           = aws_key_pair.app_server.key_name
+  create_eip         = true
   subnet_id          = data.aws_subnets.default.ids[0]
   security_group_ids = [aws_security_group.app_server.id]
   user_data          = base64encode(file("${path.module}/scripts/init_script.sh"))
