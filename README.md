@@ -426,6 +426,12 @@ pipeline{
 
 ![Jenkins Pipeline Configuration](diagrams/03_jenkins_pipeline_configuration.png)
 
+Once the pipeline runs successfully:
+
+![Successful Jenkins Run](diagrams/04_successful_jenkins_run.png)
+
+![Pipeline Stage View](diagrams/05_successful_jenkins_run_pipeline_view.png)
+
 ---
 
 ## Step 7: Running the Application
@@ -444,6 +450,8 @@ docker ps
 docker logs two-tier-app
 docker logs mysql
 ```
+
+![Final Flask Application](diagrams/06_final_flask_app.png)
 
 ---
 
