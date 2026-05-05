@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Lint'){
             steps{
-                sh 'docker run --rm flask-app pip install flake8 -q && docker run --rm flask-app flake8 app.py --max-line-length=120'
+                sh 'docker run --rm flask-app sh -c "pip install flake8 -q && flake8 app.py --max-line-length=120"'
             }
         }
         stage('Validate compose config'){

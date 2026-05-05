@@ -41,6 +41,8 @@ systemctl enable jenkins
 systemctl start jenkins
 
 # Allow Jenkins to run Docker commands
+# Restart required so Jenkins picks up the new group membership
 usermod -aG docker jenkins
+systemctl restart jenkins
 
 echo "=== Init script complete $(date) ==="
