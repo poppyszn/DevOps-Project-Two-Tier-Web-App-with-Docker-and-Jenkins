@@ -33,6 +33,14 @@ pipeline{
                 }
             }
         }
+        stage('Deploy with docker compose'){
+            steps{
+                // existing container if they are running
+                sh 'docker compose down || true'
+                // start app, rebuilding flask image
+                sh 'docker compose up -d --build'
+            }
+        }
         stage('Run migrations'){
             steps{
                 // wait for mysql to pass its healthcheck before applying schema
@@ -53,14 +61,6 @@ pipeline{
                     done
                 '''
                 sh 'docker exec -i mysql mysql -uroot -proot devops < message.sql'
-            }
-        }
-        stage('Deploy with docker compose'){
-            steps{
-                // existing container if they are running
-                sh 'docker compose down || true'
-                // start app, rebuilding flask image
-                sh 'docker compose up -d --build'
             }
         }
     }
