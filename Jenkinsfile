@@ -60,7 +60,7 @@ pipeline{
                         fi
                     done
                 '''
-                sh 'docker exec -i mysql sh -c \'mysql -uroot -p"$MYSQL_ROOT_PASSWORD" devops\' < message.sql'
+                sh "docker exec -i -e MYSQL_PWD=root mysql mysql -uroot devops < message.sql"
             }
         }
     }
