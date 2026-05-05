@@ -60,7 +60,7 @@ pipeline{
                         fi
                     done
                 '''
-                sh 'docker exec -i mysql mysql -uroot -proot devops < message.sql'
+                sh 'docker exec -i -e MYSQL_PWD=root mysql mysql -h 127.0.0.1 -uroot devops < message.sql'
             }
         }
     }

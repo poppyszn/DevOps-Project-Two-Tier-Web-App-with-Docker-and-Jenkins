@@ -4,6 +4,24 @@ exec > /var/log/init_script.log 2>&1
 
 echo "=== Starting init script $(date) ==="
 
+# Configure swap — 4GB, persistent across reboots
+SWAP_FILE=/swapfile
+SWAP_SIZE=4G
+
+fallocate -l $SWAP_SIZE $SWAP_FILE
+chmod 600 $SWAP_FILE
+mkswap $SWAP_FILE
+swapon $SWAP_FILE
+echo "${SWAP_FILE} none swap sw 0 0" >> /etc/fstab
+
+# Reduce swap aggressiveness — only use swap under memory pressure
+echo "vm.swappiness=10" >> /etc/sysctl.conf
+# Improve cache pressure so the kernel keeps file system cache longer
+echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
+sysctl -p
+
+echo "Swap configured: $(swapon --show)"
+
 apt-get update -y
 apt-get install -y ca-certificates curl gnupg
 
