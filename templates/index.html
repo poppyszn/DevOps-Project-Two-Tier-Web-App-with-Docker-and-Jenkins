@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precious Okpor | DevOps Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(160deg, #0C0D16, #1A1C2B);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            max-width: 1100px;
+            width: 100%;
+            gap: 30px;
+        }
+
+        /* Left column */
+        .left-col {
+            flex: 0 0 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #5599FF;
+            box-shadow: 0 4px 15px rgba(85, 153, 255, 0.5);
+            margin-bottom: 14px;
+        }
+
+        .profile-card h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #5599FF;
+            margin-bottom: 4px;
+        }
+
+        .profile-card .role {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 12px;
+        }
+
+        .profile-card .location {
+            font-size: 0.78rem;
+            color: #888;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .contact-links a {
+            font-size: 0.78rem;
+            color: #5599FF;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            background: rgba(85, 153, 255, 0.1);
+            transition: background 0.2s;
+        }
+
+        .contact-links a:hover {
+            background: rgba(85, 153, 255, 0.25);
+        }
+
+        .skills-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .skills-card h2 {
+            font-size: 0.95rem;
+            color: #5599FF;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .skill-group {
+            margin-bottom: 10px;
+        }
+
+        .skill-group .label {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            background: rgba(85, 153, 255, 0.12);
+            border: 1px solid rgba(85, 153, 255, 0.25);
+            border-radius: 20px;
+            color: #ccc;
+        }
+
+        /* Right column */
+        .right-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h2 {
+            font-size: 1rem;
+            color: #5599FF;
+            margin-bottom: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .about-text {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        /* Experience */
+        .exp-item {
+            margin-bottom: 18px;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .exp-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .exp-period {
+            font-size: 0.75rem;
+            color: #5599FF;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .exp-company {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .exp-bullets li {
+            font-size: 0.82rem;
+            color: #bbb;
+            line-height: 1.5;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .exp-bullets li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #5599FF;
+        }
+
+        .exp-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            margin: 16px 0;
+        }
+
+        /* Certs */
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cert-item {
+            font-size: 0.83rem;
+            color: #ccc;
+            padding: 8px 12px;
+            background: rgba(85, 153, 255, 0.07);
+            border-left: 3px solid #5599FF;
+            border-radius: 6px;
+        }
+
+        .cert-item .cert-issuer {
+            font-size: 0.72rem;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        .cert-item.in-progress {
+            border-left-color: #f0a500;
+        }
+
+        .cert-item.in-progress .cert-name {
+            color: #f0a500;
+        }
+
+        /* Messages / Guestbook */
+        .messages-list {
+            max-height: 180px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .messages-list p {
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #ddd;
+        }
+
+        .messages-list:empty::after {
+            content: "No messages yet. Be the first!";
+            font-size: 0.85rem;
+            color: #555;
+            text-align: center;
+            display: block;
+            padding: 10px;
+        }
+
+        .msg-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .msg-form input[type="text"] {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid rgba(85, 153, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+        }
+
+        .msg-form input[type="text"]::placeholder {
+            color: #555;
+        }
+
+        .msg-form input[type="text"]:focus {
+            border-color: #5599FF;
+            box-shadow: 0 0 10px rgba(85, 153, 255, 0.4);
+            outline: none;
+        }
+
+        .msg-form input[type="submit"] {
+            padding: 10px 20px;
+            background: #5599FF;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .msg-form input[type="submit"]:hover {
+            background: #417ad6;
+            box-shadow: 0 0 12px rgba(85, 153, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-col {
+                flex: none;
+                width: 100%;
+            }
+
+            .exp-header {
+                flex-direction: column;
+            }
+
+            .exp-period {
+                margin-left: 0;
+                margin-top: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Left column -->
+        <div class="left-col">
+            <div class="profile-card">
+                <img src="{{ url_for('static', filename='pfp.png') }}" alt="Precious Okpor">
+                <h1>Precious Okpor</h1>
+                <div class="role">Lead DevOps & Cloud Engineer</div>
+                <div class="location">Lagos State, Nigeria</div>
+                <div class="contact-links">
+                    <a href="mailto:preciousokpor@proton.me">preciousokpor@proton.me</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+
+            <div class="skills-card">
+                <h2>Skills</h2>
+
+                <div class="skill-group">
+                    <div class="label">Cloud</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">Containers</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">CI/CD & GitOps</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">ArgoCD</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">IaC</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">Observability</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Loki</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">Databases</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MariaDB</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">MSSQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">OS</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="right-col">
+
+            <!-- About -->
+            <div class="card">
+                <h2>About Me</h2>
+                <p class="about-text">
+                    DevOps Engineer with 2+ years of experience in DevOps practices, software engineering, and cloud infrastructure.
+                    I lead a team of 5 engineers driving decisions on containerization, Kubernetes adoption, and CI/CD modernisation —
+                    achieving <strong style="color:#5599FF;">75% faster deployments</strong> and a <strong style="color:#5599FF;">30% cloud cost reduction</strong>.
+                    Currently deployed at Vascon Solutions, building resilient infrastructure on AWS with full observability.
+                </p>
+            </div>
+
+            <!-- Experience -->
+            <div class="card">
+                <h2>Experience</h2>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Lead, DevOps & Cloud Engineer</span>
+                        <span class="exp-period">Dec 2023 – Present</span>
+                    </div>
+                    <div class="exp-company">Vascon Solutions — Lagos, Nigeria (Remote)</div>
+                    <ul class="exp-bullets">
+                        <li>Spearheaded containerization of 5 monolithic applications, managing the full product lifecycle from dev through production</li>
+                        <li>Achieved 30% reduction in AWS costs via EC2 Savings Plans, rightsizing, and decommissioning idle infrastructure</li>
+                        <li>Architected and deployed IaC using Terraform — eliminating configuration drift across dev, staging, and production</li>
+                        <li>Built a full observability stack (Grafana, Prometheus, Loki) for real-time monitoring and proactive incident detection</li>
+                        <li>Enforced Linux server security hardening — least-privilege access, SSH controls, and security baselines</li>
+                        <li>Led and mentored a team of 5 engineers, conducting code reviews and driving technical standards</li>
+                    </ul>
+                </div>
+
+                <hr class="exp-divider">
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Associate, DevOps & Cloud Engineer</span>
+                        <span class="exp-period">Earlier</span>
+                    </div>
+                    <div class="exp-company">Vascon Solutions — Lagos, Nigeria (Remote)</div>
+                    <ul class="exp-bullets">
+                        <li>Designed and implemented CI/CD pipelines that automated deployment workflows, reducing time-to-market</li>
+                        <li>Containerized applications using Docker, improving portability and environment consistency</li>
+                        <li>Deployed proactive monitoring solutions to surface performance bottlenecks before user impact</li>
+                    </ul>
+                </div>
+
+                <hr class="exp-divider">
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">NYSC, DevOps Engineer</span>
+                        <span class="exp-period">2023</span>
+                    </div>
+                    <div class="exp-company">Abuja, Nigeria</div>
+                    <ul class="exp-bullets">
+                        <li>Developed automated infrastructure provisioning scripts using Terraform and Jenkins</li>
+                        <li>Supported APM and production troubleshooting, ensuring system stability across environments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="card">
+                <h2>Certifications</h2>
+                <div class="cert-list">
+                    <div class="cert-item in-progress">
+                        <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
+                        <div class="cert-issuer">Amazon Web Services · In Progress</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Kubernetes and Cloud Native Associate (KCNA)</div>
+                        <div class="cert-issuer">The Linux Foundation</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Site Reliability Engineering</div>
+                        <div class="cert-issuer">Google Cloud</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guestbook -->
+            <div class="card">
+                <h2>Guestbook</h2>
+                <div class="messages-list" id="messagesList">
+                    {% for message in messages %}
+                        <p>{{ message[0] }}</p>
+                    {% endfor %}
+                </div>
+                <form id="messageForm" class="msg-form">
+                    <input type="text" name="new_message" placeholder="Leave a message..." required>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#messageForm").on("submit", function (event) {
+                event.preventDefault();
+                let messageInput = $("input[name='new_message']");
+                let message = messageInput.val().trim();
+
+                if (message === "") {
+                    alert("Message cannot be empty!");
+                    return;
+                }
+
+                $.ajax({
+                    url: "/submit",
+                    type: "POST",
+                    data: { new_message: message },
+                    success: function (response) {
+                        if (response && response.message) {
+                            $("#messagesList").append("<p>" + response.message + "</p>");
+                            messageInput.val("");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error:", status, error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
